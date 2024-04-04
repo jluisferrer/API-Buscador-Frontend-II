@@ -1,7 +1,7 @@
 import "./Login.css"
 import { CInput } from "../../common/CInput/CInput";
 import { LoginUser } from "../../services/apiCalls";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { decodeToken } from "react-jwt";
 
