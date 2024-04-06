@@ -8,6 +8,11 @@
     align-items: flex-end;
 }
 
+.navigatorDesign {
+    display: flex;
+    flex-direction: row;
+}
+
 .outDesign {
     color: white;
     font-weight: bold;
@@ -17,14 +22,22 @@
 
 }
 
-.navigatorDesign {
-    display: flex;
-    flex-direction: row;
-}
-
 .outDesign:hover {
     transition: 0.3s;
     color: black;
     cursor: pointer;
 }
 
+.search {
+    height: 6vh;
+    width: 20em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.01em dashed whitesmoke;
+    margin: 1em;
+    padding-left: 1em;
+    border-radius: 0.5em;
+    background-color: black;
+    color: whitesmoke;
+}

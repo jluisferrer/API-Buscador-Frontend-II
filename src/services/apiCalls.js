@@ -28,16 +28,18 @@ export const RegisterUser = async (user) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(user),
-    }
+    };
+
     try {
-        const response = await fetch(`${root}auth/register`, options)
-        const data = await response.json()
+        const response = await fetch(`${root}auth/register`, options);
+        const data = await response.json();
 
         if (!data.success) {
-            throw new Error(data.message)
+            throw new Error(data.message);
         }
+
         return data;
     } catch (error) {
-        return error
+        throw new Error('Register failed: ' + error.message);
     }
-}
+};
