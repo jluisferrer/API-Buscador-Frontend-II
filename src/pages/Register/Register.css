@@ -1,5 +1,5 @@
 .registerDesign {
-    height: 88vh;
+    height: 80vh;
     width: 100vw;
 
     background-color: darkgray;
@@ -8,3 +8,45 @@
     justify-content: center;
     align-items: center;
 }
+
+/* .behindBtns {
+
+    width: auto;
+    height: auto;
+    border-radius: 0.5em;
+    padding: 5em;
+    background: linear-gradient(90deg, rgba(122, 9, 238, 1) 0%, rgba(250, 0, 255, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.behindBtns input {
+    height: 8vh;
+    width: 30em;
+}
+
+/* .purpleColor {
+    color: gainsboro;
+} */
+
+/* .btn {
+
+    height: auto;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5em 1em 0.5em 1em;
+    border-radius: 0.5em;
+    background-color: black;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.btn:hover{
+cursor: pointer;
+background-color: red;
+transition: 0.2;
+} */ 
