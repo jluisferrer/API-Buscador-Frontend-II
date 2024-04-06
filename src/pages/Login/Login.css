@@ -10,7 +10,7 @@
 
 }
 
-.behindBtns {
+/* .behindBtns {
 
     width: auto;
     height: auto;
@@ -28,11 +28,11 @@
     width: 30em;
 }
 
-.purpleColor {
+/* .purpleColor {
     color: gainsboro;
-}
+} */
 
-.btn {
+/* .btn {
 
     height: auto;
     width: auto;
@@ -43,4 +43,5 @@
     border-radius: 0.5em;
     background-color: black;
     color: whitesmoke;
-}
+    cursor: pointer;
+} */ 

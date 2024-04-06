@@ -1,0 +1,19 @@
+.cButtonDesign {
+
+    height: 5vh;
+    width: 13vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5em 1em 0.5em 1em;
+    border-radius: 0.5em;
+    background-color: black;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.cButtonDesign:hover{
+cursor: pointer;
+background-color: red;
+transition: 0.2;
+}

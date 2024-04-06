@@ -12,7 +12,6 @@ export const Home = () => {
     const searchRdx = useSelector(searchData)
 
 useEffect(() => {
-    console.log(searchRdx);
 }, [searchRdx]);
     return (
         <div className="homeDesign">
