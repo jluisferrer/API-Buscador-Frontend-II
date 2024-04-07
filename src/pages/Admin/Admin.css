@@ -1,0 +1,11 @@
+.adminDesign {
+    height: 80vh;
+    width: 100vw;
+
+    background-color: darkgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
