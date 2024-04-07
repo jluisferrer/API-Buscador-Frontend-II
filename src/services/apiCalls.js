@@ -66,3 +66,27 @@ export const GetProfile = async (token) => {
         return error;
     }
 };
+
+export const UpdateProfile = async (token, user)=>{
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(user)
+    };
+    try {
+        const response = await fetch(`${root}users/profile`, options);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const responseData = await response.json();
+        if (!responseData.success) {
+            throw new Error(responseData.message);
+        }
+        return responseData;
+    } catch (error) {
+        throw new Error('Update profile failed: ' + error.message);
+    }
+};
