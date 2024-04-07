@@ -94,7 +94,7 @@ export const Profile = () => {
     return (
         <>
             <div className="profileDesign">
-                {<>
+                {<><div>Name:
                     <CInput className={`inputDesign ${userError.usernameError !== "" ? "inputDesignError" : ""}${write === ""}`}
                         type="text"
                         placeholder=""
@@ -103,24 +103,29 @@ export const Profile = () => {
                         value={user.username || ""}
                         changeEmit={(e) => inputHandler(e)}
                     />
-                    <CInput className={`inputDesign ${userError.emailError !== "" ? "inputDesignError" : ""}${write === ""}`}
-                        type="email"
-                        placeholder=""
-                        name="email"
-                        disabled="disabled"
-                        value={user.email || ""}
-                        changeEmit={(e) => inputHandler(e)}
-                    />
-                    <CInput className={`inputDesign ${userError.roleError !== "" ? "inputDesignError" : ""}${write === ""}`}
-                        type="text"
-                        placeholder=""
-                        name="role"
-                        disabled="disabled"
-                        value={user.role || ""}
-                        changeEmit={(e) => inputHandler(e)}
-                    />
+                </div>
+                    <div>Email:
+                        <CInput className={`inputDesign ${userError.emailError !== "" ? "inputDesignError" : ""}${write === ""}`}
+                            type="email"
+                            placeholder=""
+                            name="email"
+                            disabled="disabled"
+                            value={user.email || ""}
+                            changeEmit={(e) => inputHandler(e)}
+                        />
+                    </div>
+                    <div>Role
+                        <CInput className={`inputDesign ${userError.roleError !== "" ? "inputDesignError" : ""}${write === ""}`}
+                            type="text"
+                            placeholder=""
+                            name="role"
+                            disabled="disabled"
+                            value={user.role || ""}
+                            changeEmit={(e) => inputHandler(e)}
+                        />
+                    </div>
                     <CButton
-                        className={(write === "") ? "btn cButtonDesign cButtonGreen" : "btn cButtonDesign"}
+                        className={(write === "") ? "btn cButtonDesignProfile" : "btn cButtonDesignProfile"}
                         title={write === "" ? "Confirm" : "Edit"}
                         functionEmit={write === "" ? updateData : () => setWrite("")}
                     />

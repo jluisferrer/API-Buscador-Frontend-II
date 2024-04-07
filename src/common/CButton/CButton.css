@@ -10,10 +10,31 @@
     background-color: black;
     color: whitesmoke;
     cursor: pointer;
+    transition: 0.2s;
 }
 
-.cButtonDesign:hover{
-cursor: pointer;
-background-color: red;
-transition: 0.2;
+.cButtonDesign:hover {
+    cursor: pointer;
+    background-color: red;
+    transition: 0.2s;
+}
+
+.cButtonDesignProfile {
+    height: 5vh;
+    width: 13vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5em 1em 0.5em 1em;
+    border-radius: 0.5em;
+    background-color: green;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.cButtonDesignProfile:hover {
+    cursor: pointer;
+    background-color: darkgreen;
+    transition: 0.2s;
+
 }
