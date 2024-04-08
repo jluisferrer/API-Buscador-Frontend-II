@@ -67,7 +67,7 @@ export const GetProfile = async (token) => {
     }
 };
 
-export const UpdateProfile = async (token, user)=>{
+export const UpdateProfile = async (token, user) => {
     const options = {
         method: "PUT",
         headers: {
@@ -88,5 +88,30 @@ export const UpdateProfile = async (token, user)=>{
         return responseData;
     } catch (error) {
         throw new Error('Update profile failed: ' + error.message);
+    }
+};
+
+export const GetUsers = async (token) => {
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    };
+    try {
+        const response = await fetch(`${root}users`, options);
+        if (!response.ok) {
+            console.log("response failed:", response);
+            throw new Error('Network response was not ok');
+        }
+        console.log(111, "response", response);
+        const data = await response.json();
+        if (!data.success) {
+            throw new Error(data.message);
+        }
+        return data;
+    } catch (error) {
+        throw new Error('Get users failed: ' + error.message);
     }
 };
