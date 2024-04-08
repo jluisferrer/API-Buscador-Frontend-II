@@ -1,6 +1,7 @@
-.loginDesign {
+.adminDesign {
     height: 80vh;
     width: 100vw;
+
     background-color: rgb(244, 241, 222);
     display: flex;
     flex-direction: column;
