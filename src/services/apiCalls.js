@@ -115,3 +115,28 @@ export const GetUsers = async (token) => {
         throw new Error('Get users failed: ' + error.message);
     }
 };
+
+export const DeleteUser = async (token, _id) => {
+    const options = {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    }
+    try {
+        const response = await fetch(`${root}users/${_id}`, options)
+        if (!response.ok) {
+            throw new Error('Failed to delete user: ' + response.statusText);
+        }
+
+        const data = await response.json();
+        if (!data.success) {
+            throw new Error('Failed to delete user: ' + data.message);
+        }
+        return data;
+
+    } catch (error) {
+        throw new Error('Delete user failed: ' + error.message);
+    }
+}
