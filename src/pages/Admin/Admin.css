@@ -1,11 +1,65 @@
 .adminDesign {
     height: 80vh;
     width: 100vw;
-
+    overflow: auto;
     background-color: rgb(244, 241, 222);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
 }
 
+.userCard {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.username {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.grayBg {
+    background-color: rgb(42, 157, 143); /* un tono de verde azulado */
+}
+
+.del, .edit {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: rgb(38, 70, 83); /* un tono oscuro de azul */
+    cursor: pointer;
+}
+
+.del:hover, .edit:hover {
+    background-color: rgb(42, 157, 143); /* un tono de verde azulado */
+}
+
+.totalUsers {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
