@@ -25,6 +25,12 @@ export const userSlice = createSlice({
                 ...state,
                 ...action.payload
             }
+        },
+        deleteUserById: (state, action) => {
+            return {
+                ...state,
+                credentials: state.credentials.filter(user => user.id !== action.payload.id)
+            }
         }
     }
 });
@@ -32,7 +38,7 @@ export const userSlice = createSlice({
 
 
 
-export const { login, logout, profile } = userSlice.actions;
+export const { login, logout, profile, deleteUserById } = userSlice.actions;
 
 export const userData = (state) => state.user;
 

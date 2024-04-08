@@ -2,8 +2,8 @@
     height: 8vh;
     width: 100vw;
 
-    background-color: rgb(1, 1, 198);
-    color: white;
+    background-color: rgb(38, 70, 83);
+    color: rgb(233, 196, 106); 
 
     display: flex;
     flex-direction: column;

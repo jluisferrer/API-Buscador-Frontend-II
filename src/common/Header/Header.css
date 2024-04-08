@@ -1,8 +1,8 @@
 .headerDesign {
     height: 12vh;
     width: 100vw;
-
-    background-color: rgb(1, 1, 198);
+    color: rgb(233, 196, 106);
+    background-color: rgb(38, 70, 83);
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -14,7 +14,7 @@
 }
 
 .outDesign {
-    color: white;
+    color: rgb(233, 196, 106);
     font-weight: bold;
 
     margin: 1em;
@@ -24,7 +24,7 @@
 
 .outDesign:hover {
     transition: 0.3s;
-    color: black;
+    color: rgb(42, 157, 143);
     cursor: pointer;
 }
 
@@ -34,10 +34,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 0.01em dashed whitesmoke;
+    border: 0.01em dashed rgb(233, 196, 106);
     margin: 1em;
     padding-left: 1em;
     border-radius: 0.5em;
-    background-color: black;
-    color: whitesmoke;
+    background-color: rgb(42, 157, 143);
+    color: rgb(233, 196, 106);
 }
