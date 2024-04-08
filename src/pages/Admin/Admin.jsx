@@ -15,7 +15,7 @@ export const Admin = () => {
     useEffect(() => {
     }, []);
     //Instancia de Redux para escritura y lectura (ver y editar )
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const rdxUser = useSelector(userData);
     const [tokenStorage, setTokenStorage] = useState(rdxUser.credentials.token);
     useEffect(() => {
@@ -56,10 +56,6 @@ export const Admin = () => {
             throw new Error('Get users failed: ' + error.message);
         }
     };
-    // useEffect(() => {
-    //     const numbers1 = users.map((_, index) => index + 1);
-    //     setRowNumbers1(numbers1);
-    // }, [users]);
     const deleteUser = async (_id) => {
         try {
             await DeleteUser(tokenStorage, _id);
@@ -68,10 +64,7 @@ export const Admin = () => {
             throw new Error('Failed to delete user: ', error.message);
         }
     };
-    const pageCountUsers = Math.ceil(users.length / numUserDisplay);
-    const handlePageClickUsers = ({ selected }) => {
-        setCurrentPageU(selected); // Update current page for users
-    };
+    // const pageCountUsers = Math.ceil(users.length / numUserDisplay);
     const indexOfLastUser = currentPageU * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
