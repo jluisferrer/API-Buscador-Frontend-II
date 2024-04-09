@@ -154,7 +154,7 @@ export const Profile = () => {
                         </div>
                         <div className="cardBody">
                             <div className="description">{post.description}</div>
-                            <div className="likes">{post.likes} likes</div>
+                            <div className="likes">Likes: {post.likes.length}</div>
                         </div>
                     </div>
                 ))}
