@@ -5,61 +5,63 @@
     background-color: rgb(244, 241, 222);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
 .userCard {
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    width: 28vw;
+    border: 0.1vh solid #ccc;
+    border-radius: 0.5vh;
+    margin: 1vh;
+    padding: 1vh;
+    box-shadow: 0 0 1vh rgba(0, 0, 0, 0.15);
 }
 
 .cardHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 1.5vh;
 }
 
 .username {
-    font-size: 20px;
+    font-size: 2vh;
     font-weight: bold;
 }
 
 .actions {
     display: flex;
-    gap: 10px;
+    gap: 1vh;
 }
 
 .cardBody {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1vh;
 }
 
 .grayBg {
-    background-color: rgb(42, 157, 143); /* un tono de verde azulado */
+    background-color: rgb(42, 157, 143);
 }
 
-.del, .edit {
-    padding: 5px 10px;
+.del,
+.edit {
+    padding: 0.5vh 1vh;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5vh;
     color: #fff;
-    background-color: rgb(38, 70, 83); /* un tono oscuro de azul */
+    background-color: rgb(38, 70, 83);
     cursor: pointer;
 }
 
-.del:hover, .edit:hover {
-    background-color: rgb(42, 157, 143); /* un tono de verde azulado */
+.del:hover,
+.edit:hover {
+    background-color: rgb(42, 157, 143);
 }
 
 .totalUsers {
-    margin-top: 20px;
-    font-size: 20px;
+    margin-top: 2vh;
+    font-size: 2vh;
     font-weight: bold;
 }
