@@ -140,3 +140,24 @@ export const DeleteUser = async (token, _id) => {
         throw new Error('Delete user failed: ' + error.message);
     }
 }
+
+export const CreatePost = async (token,post) => {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(post),
+    };
+    try {
+      const response = await fetch(`${root}posts`, options);
+      const data = await response.json();
+      if (!data.success) {
+        throw new Error(data.message);
+      }
+      return data;
+    } catch (error) {
+        throw new Error('Cant create post ' + error.message);
+    }
+  };
