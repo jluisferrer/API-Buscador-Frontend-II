@@ -5,7 +5,7 @@ import { useNavigate } from "react-router"
 import { useState, useEffect } from "react"
 import { CInput } from "../../common/CInput/CInput"
 import { CButton } from "../../common/CButton/CButton"
-import { GetProfile, UpdateProfile } from "../../services/apiCalls"
+import { GetProfile, UpdateProfile, GetUserPosts } from "../../services/apiCalls"
 import { profile } from "../../app/slices/userSlice"
 
 
@@ -89,8 +89,21 @@ export const Profile = () => {
         } catch (error) {
             throw new Error(`Updating profile failed:` + error.message)
         }
-    }
 
+    }
+    
+    const [myPosts, setMyPosts] = useState([]);
+    useEffect(() => {
+        const getMyPostsData = async () => {
+            try {
+                const fetched = await GetUserPosts(tokenStorage)
+                setMyPosts(fetched.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getMyPostsData()
+    }, [myPosts, tokenStorage])
     return (
         <>
             <div className="profileDesign">
@@ -130,7 +143,23 @@ export const Profile = () => {
                         functionEmit={write === "" ? updateData : () => setWrite("")}
                     />
                 </>}
+                {myPosts.map((post, index) => (
+                    <div key={index} className="postCard">
+                        <div className="cardHeader">
+                            <div className="title">{post.title}</div>
+                            <div className="actions">
+                                <button className="edit">Edit</button>
+                                <button className="del">Delete</button>
+                            </div>
+                        </div>
+                        <div className="cardBody">
+                            <div className="description">{post.description}</div>
+                            <div className="likes">{post.likes} likes</div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </>
     )
+
 }
