@@ -1,7 +1,7 @@
 .profileDesign {
     height: 80vh;
     width: 100vw;
-
+    overflow: auto;
     background-color: rgb(244, 241, 222);
     display: flex;
     flex-direction: column;

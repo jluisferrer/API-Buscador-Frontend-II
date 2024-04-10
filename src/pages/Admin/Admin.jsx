@@ -7,7 +7,7 @@ import { GetUsers, DeleteUser, UpdateProfile } from "../../services/apiCalls";
 import dayjs from "dayjs";
 import { useDispatch, useSelector } from "react-redux";
 
-const numUserDisplay = 5;
+const numUserDisplay = 100;
 
 export const Admin = () => {
     //Instancia de Redux en modo lectura para home

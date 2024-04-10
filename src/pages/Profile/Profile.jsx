@@ -5,7 +5,7 @@ import { useNavigate } from "react-router"
 import { useState, useEffect } from "react"
 import { CInput } from "../../common/CInput/CInput"
 import { CButton } from "../../common/CButton/CButton"
-import { GetProfile, UpdateProfile, GetUserPosts } from "../../services/apiCalls"
+import { GetProfile, UpdateProfile, GetUserPosts, DeletePost, UpdatePost } from "../../services/apiCalls"
 import { profile } from "../../app/slices/userSlice"
 
 
@@ -89,9 +89,37 @@ export const Profile = () => {
         } catch (error) {
             throw new Error(`Updating profile failed:` + error.message)
         }
-
     }
-    
+
+    const deletePost = async (postId) => {
+        try {
+            const deletedPost = await DeletePost(postId, tokenStorage);
+            console.log(deletedPost); // O maneja la respuesta como prefieras
+            // Actualiza la lista de publicaciones después de borrar una
+            setMyPosts(myPosts.filter(post => post.id !== postId));
+        } catch (error) {
+            console.error(`Deleting post failed: ` + error.message);
+        }
+    }
+
+    const updatePost = async (postId) => {
+        // Define los datos que deseas actualizar
+        const updatedData = {
+            title: 'Nuevo título',
+            description: 'Nueva descripción',
+            // ... otros campos que desees actualizar
+        };
+
+        try {
+            const updatedPost = await UpdatePost(postId, tokenStorage, updatedData);
+            console.log(updatedPost); // O maneja la respuesta como prefieras
+            // Actualiza la lista de publicaciones después de actualizar una
+            setMyPosts(myPosts.map(post => post.id === postId ? updatedPost : post));
+        } catch (error) {
+            console.error(`Updating post failed: ` + error.message);
+        }
+    }
+
     const [myPosts, setMyPosts] = useState([]);
     useEffect(() => {
         const getMyPostsData = async () => {
@@ -148,8 +176,8 @@ export const Profile = () => {
                         <div className="cardHeader">
                             <div className="title">{post.title}</div>
                             <div className="actions">
-                                <button className="edit">Edit</button>
-                                <button className="del">Delete</button>
+                            <button className="edit" onClick={() => updatePost(post.id)}>Edit</button>
+                                <button className="del" onClick={() => deletePost(post.id)}>Delete</button>
                             </div>
                         </div>
                         <div className="cardBody">
@@ -161,5 +189,4 @@ export const Profile = () => {
             </div>
         </>
     )
-
 }

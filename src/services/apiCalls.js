@@ -129,13 +129,11 @@ export const DeleteUser = async (token, _id) => {
         if (!response.ok) {
             throw new Error('Failed to delete user: ' + response.statusText);
         }
-
         const data = await response.json();
         if (!data.success) {
             throw new Error('Failed to delete user: ' + data.message);
         }
         return data;
-
     } catch (error) {
         throw new Error('Delete user failed: ' + error.message);
     }
@@ -170,16 +168,13 @@ export const GetUserPosts = async (token) => {
             "Authorization": `Bearer ${token}`
         }
     };
-
     try {
         const response = await fetch(`${root}posts/own`, options);
-
         const data = await response.json();
 
         if (!data.success) {
             throw new Error(data.message);
         }
-
         return data;
     } catch (error) {
         return error;
@@ -206,3 +201,45 @@ export const CreatePost = async (token, post) => {
         throw new Error('Cant create post ' + error.message);
     }
 };
+
+export const DeletePost = async (id, token) => {
+    const options = {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    }
+    try {
+        const response = await fetch(`${root}posts/${id}`, options)
+        const data = await response.json();
+        if (!data.success) {
+            throw new Error(data.message)
+        }
+
+        return data
+
+    } catch (error) {
+        throw new Error('Cant delete post ' + error.message);
+    }
+}
+
+export const UpdatePost = async (postId, token) => {
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    }
+    try {
+        const response = await fetch(`${root}posts/update/${postId}`, options)
+        const data = await response.json();
+        if (!data.success) {
+            throw new Error(data.message)
+        }
+        return data
+    } catch (error) {
+        throw new Error('Cant update post ' + error.message);
+    }
+}
