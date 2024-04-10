@@ -224,7 +224,7 @@ export const DeletePost = async (id, token) => {
     }
 }
 
-export const UpdatePost = async (postId, token) => {
+export const UpdatePost = async (id, token) => {
     const options = {
         method: "PUT",
         headers: {
@@ -233,7 +233,7 @@ export const UpdatePost = async (postId, token) => {
         }
     }
     try {
-        const response = await fetch(`${root}posts/update/${postId}`, options)
+        const response = await fetch(`${root}posts/update/${id}`, options)
         const data = await response.json();
         if (!data.success) {
             throw new Error(data.message)
@@ -243,3 +243,27 @@ export const UpdatePost = async (postId, token) => {
         throw new Error('Cant update post ' + error.message);
     }
 }
+
+export const LikePost = async (token, id) => {
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",  
+            "Authorization": `Bearer ${token}`        
+        }
+    } 
+    try {
+        const response = await fetch(`${root}posts/like/${id}`, options)
+  
+        const data = await response.json();
+  
+        if (!data.success) {
+            throw new Error(data.message)
+        }
+  
+        return data
+  
+    } catch (error) {
+        throw new Error('Cant likeunlike post ' + error.message);
+    }
+  }

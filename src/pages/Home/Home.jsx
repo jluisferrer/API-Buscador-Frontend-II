@@ -1,7 +1,7 @@
 import "./Home.css"
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { GetPosts } from "../../services/apiCalls";
+import { GetPosts, LikePost } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom';
 import { searchData } from "../../app/slices/searchSlice";
 import { useEffect } from "react";
@@ -36,8 +36,21 @@ export const Home = () => {
         }
         getDataPosts()
     }, [posts, token])
+
+    const likeUnlike = async (post_id) => {
+        try {
+            const fetched = await LikePost(rdxUser?.credentials?.token, post_id);
+            // Encuentra el post que ha sido "likeado" y actualiza su estado
+            if (fetched.data && fetched.data._id) {
+                setPosts(posts.map(post => post._id === post_id ? fetched.data : post));
+            } 
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
     return (
-        <div className="homeDesign">soy home
+        <div className="homeDesign">
             {posts.map((post) => (
                 <div className="postCard" key={post._id}>
                     <div className="cardHeader">
@@ -47,6 +60,7 @@ export const Home = () => {
                     <div className="cardBody">
                         <div className="likes">Likes: {post.likes.length}</div>
                         <div className="description">{post.description}</div>
+                        <button className="likeUnLike" onClick={() => likeUnlike(post._id)}>Like!</button>
                     </div>
                 </div>
             ))}
