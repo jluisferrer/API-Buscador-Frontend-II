@@ -54,7 +54,7 @@ export const Home = () => {
             {posts.map((post) => (
                 <div className="postCard" key={post._id}>
                     <div className="cardHeader">
-                        <div className="username">{post.userId.username}</div>
+                    <div className="username">{post.userId ? post.userId.username : 'Usuario desconocido'}</div>
                         <div className="title">{post.title}</div>
                     </div>
                     <div className="cardBody">
