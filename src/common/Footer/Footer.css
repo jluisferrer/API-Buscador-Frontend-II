@@ -1,10 +1,12 @@
-.loginDesign {
-    height: 80vh;
+.footerDesign {
+    height: 8vh;
     width: 100vw;
-    background-color: rgb(244, 241, 222);
+
+    background-color: rgb(38, 70, 83);
+    color: rgb(233, 196, 106); 
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-

@@ -1,0 +1,40 @@
+.cButtonDesign {
+
+    height: 5vh;
+    width: 13vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5em 1em 0.5em 1em;
+    border-radius: 0.5em;
+    background-color: rgb(38, 70, 83);
+    color: rgb(233, 196, 106); 
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cButtonDesign:hover {
+    cursor: pointer;
+    background-color: rgb(42, 157, 143);
+    transition: 0.2s;
+}
+
+.cButtonDesignProfile {
+    height: 5vh;
+    width: 13vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5em 1em 0.5em 1em;
+    border-radius: 0.5em;
+    background-color: rgb(233, 196, 106); 
+    color: rgb(38, 70, 83);
+    cursor: pointer;
+}
+
+.cButtonDesignProfile:hover {
+    cursor: pointer;
+    background-color: rgb(42, 157, 143);
+    transition: 0.2s;
+
+}

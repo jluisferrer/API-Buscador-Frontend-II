@@ -1,4 +1,4 @@
-.homeDesign {
+.adminDesign {
     height: 80vh;
     width: 100vw;
     overflow: auto;
@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.postCard {
+.userCard {
     width: 28vw;
     border: 0.1vh solid #ccc;
     border-radius: 0.5vh;
@@ -25,7 +25,7 @@
     margin-bottom: 1.5vh;
 }
 
-.title {
+.username {
     font-size: 2vh;
     font-weight: bold;
 }
@@ -41,12 +41,8 @@
     gap: 1vh;
 }
 
-.description {
-    color: #333;
-}
-
-.likes {
-    color: #999;
+.grayBg {
+    background-color: rgb(42, 157, 143);
 }
 
 .del,
@@ -62,4 +58,10 @@
 .del:hover,
 .edit:hover {
     background-color: rgb(42, 157, 143);
+}
+
+.totalUsers {
+    margin-top: 2vh;
+    font-size: 2vh;
+    font-weight: bold;
 }

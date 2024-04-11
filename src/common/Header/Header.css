@@ -1,20 +1,11 @@
 .headerDesign {
     height: 12vh;
     width: 100vw;
-
-    background-color: rgb(1, 1, 198);
+    color: rgb(233, 196, 106);
+    background-color: rgb(38, 70, 83);
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-}
-
-.outDesign {
-    color: white;
-    font-weight: bold;
-
-    margin: 1em;
-    transition: 0.3s;
-
 }
 
 .navigatorDesign {
@@ -22,9 +13,31 @@
     flex-direction: row;
 }
 
+.outDesign {
+    color: rgb(233, 196, 106);
+    font-weight: bold;
+
+    margin: 1em;
+    transition: 0.3s;
+
+}
+
 .outDesign:hover {
     transition: 0.3s;
-    color: black;
+    color: rgb(42, 157, 143);
     cursor: pointer;
 }
 
+.search {
+    height: 6vh;
+    width: 20em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.01em dashed rgb(233, 196, 106);
+    margin: 1em;
+    padding-left: 1em;
+    border-radius: 0.5em;
+    background-color: rgb(42, 157, 143);
+    color: rgb(233, 196, 106);
+}
