@@ -5,6 +5,8 @@ import { CInput } from "../../common/CInput/CInput";
 import { CButton } from "../../common/CButton/CButton";
 import { validame } from "../../utils/functions";
 import { RegisterUser } from "../../services/apiCalls";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -39,6 +41,9 @@ export const Register = () => {
             ...prevState,
             [e.target.name + "Error"]: error,
         }))
+        if (error) {
+            toast.error(error);
+        }
     }
 
     const registerMe = async () => {
@@ -58,16 +63,18 @@ export const Register = () => {
             }, 3000);
         } catch (error) {
             setMsgError(error.message);
+            toast.error(error.message);
         }
     };
     return (
         <div className="registerDesign">
+            <ToastContainer />
             {msg === "" ? (
                 <div className="registerDesign">
                     <div className="error">{msgError}</div>
                     <CInput
                         className={`inputDesign ${userError.usernameError !== "" ? "inputDesignError" : ""
-                            }`}
+                    }`}
                         type="text"
                         placeholder="Choose an username"
                         name="username"
@@ -75,7 +82,7 @@ export const Register = () => {
                         changeEmit={(e) => inputHandler(e)}
                         onBlurFunction={(e) => checkError(e)}
                     />
-                    <div className="inputDesignError">{userError.usernameError}</div>
+                     <div className="inputDesignError">{userError.usernameError}</div>
                     <CInput
                         className={`inputDesign ${userError.emailError !== "" ? "inputDesignError" : ""
                             }`}

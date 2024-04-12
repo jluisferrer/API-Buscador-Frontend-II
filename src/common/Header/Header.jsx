@@ -35,12 +35,12 @@ export const Header = () => {
     return (
         <div className="headerDesign">
             {/* BARRA DE BÚSQUEDA */}
-            <CInput
+            {/* <CInput
                 type="text"
                 name="criteria"
                 value={criteria || ""}
                 changeEmit={searchHandler}
-            />
+            /> */}
             <CLink path="/" title="Home" />
             {rdxUser?.credentials?.token ? (
                 <>

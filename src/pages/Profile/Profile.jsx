@@ -98,7 +98,8 @@ export const Profile = () => {
             // Actualiza la lista de publicaciones después de borrar una
             setMyPosts(myPosts.filter(post => post.id !== postId));
         } catch (error) {
-            console.error(`Deleting post failed: ` + error.message);
+            throw new Error('Cant delete Post' + error.message);
+
         }
     }
 
@@ -177,7 +178,7 @@ export const Profile = () => {
                             <div className="title">{post.title}</div>
                             <div className="actions">
                             <button className="edit" onClick={() => updatePost(post.id)}>Edit</button>
-                                <button className="del" onClick={() => deletePost(post.id)}>Delete</button>
+                            <button className="del" onClick={() => deletePost(post.id)}>Delete</button>
                             </div>
                         </div>
                         <div className="cardBody">
