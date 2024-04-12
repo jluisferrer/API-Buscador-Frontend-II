@@ -7,17 +7,23 @@ import { searchData } from "../../app/slices/searchSlice";
 import { useEffect } from "react";
 import { userData } from "../../app/slices/userSlice";
 import { CInput } from "../../common/CInput/CInput";
+import { useDispatch } from "react-redux";
+import { updateDetail } from "../../app/slices/postSlice";
 
 
 
 
 export const Home = () => {
-
+    const dispatch= useDispatch()
     const navigate = useNavigate()
     const rdxUser = useSelector(userData)
     const token = rdxUser.credentials.token
     
-    // const searchRdx = useSelector(searchData)
+    const manageDetail = (post) => {
+        dispatch(updateDetail({detail:post}));
+        
+        navigate("/detail");
+    };
 
     useEffect(() => {
         if (!token)
@@ -41,7 +47,7 @@ export const Home = () => {
 
     const likeUnlike = async (post_id) => {
         try {
-            const fetched = await LikePost(rdxUser?.credentials?.token, post_id);
+            const fetched = await LikePost(token, post_id);
             // Encuentra el post que ha sido "likeado" y actualiza su estado
             if (fetched.data && fetched.data._id) {
                 setPosts(posts.map(post => post._id === post_id ? fetched.data : post));
@@ -70,7 +76,6 @@ export const Home = () => {
             const post = { title, description }; // Aquí defines el post que quieres crear
             const newPost = await CreatePost(token, post);
             // Añade el nuevo post a la lista de posts
-            // setPosts([newPost.data, ...posts]);
             // Limpia los campos de entrada
             setTitle("");
             setDescription("");
@@ -99,18 +104,18 @@ export const Home = () => {
                 <button onClick={newPost}>Crear Post</button>
             </div>
             {posts.map((post) => (
-                <div className="postCard" key={post._id}>
-                    <div className="cardHeader">
+                <div className="postCard" >
+                    <div className="postDetail" onClick={() => manageDetail(post)} key={post._id}>soy el detalle<div className="cardHeader" >
                     <div className="username">{post.userId ? post.userId.username : 'Usuario desconocido'}</div>
                         <div className="title">{post.title}</div>
-                    </div>
+                    </div></div>
                     <div className="cardBody">
                         <div className="likes">Likes: {post.likes.length}</div>
                         <div className="description">{post.description}</div>
                         <button className="likeUnLike" onClick={() => likeUnlike(post._id)}>Like!</button>
                     </div>
                 </div>
-            ))}
+            )).reverse()}
         </div>
     )
 }
