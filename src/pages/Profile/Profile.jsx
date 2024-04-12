@@ -5,7 +5,7 @@ import { useNavigate } from "react-router"
 import { useState, useEffect } from "react"
 import { CInput } from "../../common/CInput/CInput"
 import { CButton } from "../../common/CButton/CButton"
-import { GetProfile, UpdateProfile } from "../../services/apiCalls"
+import { GetProfile, UpdateProfile, GetUserPosts, DeletePost, UpdatePost } from "../../services/apiCalls"
 import { profile } from "../../app/slices/userSlice"
 
 
@@ -91,6 +91,47 @@ export const Profile = () => {
         }
     }
 
+    const deletePost = async (postId) => {
+        try {
+            const deletedPost = await DeletePost(postId, tokenStorage);
+            console.log(deletedPost); // O maneja la respuesta como prefieras
+            // Actualiza la lista de publicaciones después de borrar una
+            setMyPosts(myPosts.filter(post => post.id !== postId));
+        } catch (error) {
+            console.error(`Deleting post failed: ` + error.message);
+        }
+    }
+
+    // const updatePost = async (postId) => {
+    //     // Define los datos que deseas actualizar
+    //     const updatedData = {
+    //         title: 'Nuevo título',
+    //         description: 'Nueva descripción',
+    //         // ... otros campos que desees actualizar
+    //     };
+
+    //     try {
+    //         const updatedPost = await UpdatePost(postId, tokenStorage, updatedData);
+    //         console.log(updatedPost); // O maneja la respuesta como prefieras
+    //         // Actualiza la lista de publicaciones después de actualizar una
+    //         setMyPosts(myPosts.map(post => post.id === postId ? updatedPost : post));
+    //     } catch (error) {
+    //         console.error(`Updating post failed: ` + error.message);
+    //     }
+    // }
+
+    const [myPosts, setMyPosts] = useState([]);
+    useEffect(() => {
+        const getMyPostsData = async () => {
+            try {
+                const fetched = await GetUserPosts(tokenStorage)
+                setMyPosts(fetched.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getMyPostsData()
+    }, [myPosts, tokenStorage])
     return (
         <>
             <div className="profileDesign">
@@ -130,6 +171,21 @@ export const Profile = () => {
                         functionEmit={write === "" ? updateData : () => setWrite("")}
                     />
                 </>}
+                {myPosts.map((post, index) => (
+                    <div key={index} className="postCard">
+                        <div className="cardHeader">
+                            <div className="title">{post.title}</div>
+                            <div className="actions">
+                            <button className="edit" onClick={() => updatePost(post.id)}>Edit</button>
+                            <button className="del" onClick={() => deletePost(post.id)}>Delete</button>
+                            </div>
+                        </div>
+                        <div className="cardBody">
+                            <div className="description">{post.description}</div>
+                            <div className="likes">Likes: {post.likes.length}</div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </>
     )
