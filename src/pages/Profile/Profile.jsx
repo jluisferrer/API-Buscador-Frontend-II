@@ -98,7 +98,8 @@ export const Profile = () => {
             // Actualiza la lista de publicaciones después de borrar una
             setMyPosts(myPosts.filter(post => post.id !== postId));
         } catch (error) {
-            console.error(`Deleting post failed: ` + error.message);
+            throw new Error('Cant delete Post' + error.message);
+
         }
     }
 

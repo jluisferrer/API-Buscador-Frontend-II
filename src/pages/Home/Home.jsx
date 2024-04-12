@@ -32,7 +32,8 @@ export const Home = () => {
                 const fetched = await GetPosts(token)
                 setPosts(fetched.data)
             } catch (error) {
-                console.log(error)
+                throw new Error('Cant get data  Posts' + error.message);
+
             }
         }
         getDataPosts()
@@ -46,7 +47,7 @@ export const Home = () => {
                 setPosts(posts.map(post => post._id === post_id ? fetched.data : post));
             } 
         } catch (error) {
-            console.log(error);
+            throw new Error('Cant likeUnLike Post' + error.message);
         }
     }
 
@@ -74,7 +75,7 @@ export const Home = () => {
             setTitle("");
             setDescription("");
         } catch (error) {
-            console.log(error);
+            throw new Error('Cant create new Post ' + error.message);
         }
     };
     

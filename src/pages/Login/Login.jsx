@@ -47,6 +47,9 @@ export const Login = () => {
             ...prevState,
             [e.target.name + "Error"]: error,
         }))
+        if (error) {
+            toast.error(error);
+        }
     }
 
     const loginMe = async () => {
@@ -72,6 +75,7 @@ export const Login = () => {
     }
     return (
         <div className="loginDesign">
+            <ToastContainer />
             <CInput
              className={`inputDesign ${userError.emailError !== "" ? "inputDesignError" : ""
             }`}

@@ -7,7 +7,7 @@ import { GetUsers, DeleteUser, UpdateProfile } from "../../services/apiCalls";
 import dayjs from "dayjs";
 import { useDispatch, useSelector } from "react-redux";
 
-const numUserDisplay = 100;
+const numUserDisplay = 5;
 
 export const Admin = () => {
     //Instancia de Redux en modo lectura para home
@@ -64,7 +64,6 @@ export const Admin = () => {
             throw new Error('Failed to delete user: ', error.message);
         }
     };
-    // const pageCountUsers = Math.ceil(users.length / numUserDisplay);
     const indexOfLastUser = currentPageU * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
