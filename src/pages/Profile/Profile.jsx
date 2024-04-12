@@ -177,7 +177,7 @@ export const Profile = () => {
                             <div className="title">{post.title}</div>
                             <div className="actions">
                             <button className="edit" onClick={() => updatePost(post.id)}>Edit</button>
-                                <button className="del" onClick={() => deletePost(post.id)}>Delete</button>
+                            <button className="del" onClick={() => deletePost(post.id)}>Delete</button>
                             </div>
                         </div>
                         <div className="cardBody">
