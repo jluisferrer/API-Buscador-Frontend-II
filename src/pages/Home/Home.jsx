@@ -105,13 +105,13 @@ export const Home = () => {
             </div>
             {posts.map((post) => (
                 <div className="postCard" >
-                    <div className="postDetail" onClick={() => manageDetail(post)} key={post._id}>soy el detalle<div className="cardHeader" >
-                    <div className="username">{post.userId ? post.userId.username : 'Usuario desconocido'}</div>
-                        <div className="title">{post.title}</div>
+                    <div className="postDetail" onClick={() => manageDetail(post)} key={post._id}>detail<div className="cardHeader" >
+                    <div className="username">{post.userId ?( post.userId.username.length > 10 ? post.userId.username.substring(0,10) + ".." : post.userId.username ) : 'Usuario desconocido'}</div>
+                        <div className="title">{post.title.length > 10 ? post.title.substring(0,10) + ".." : post.title }</div>
                     </div></div>
                     <div className="cardBody">
                         <div className="likes">Likes: {post.likes.length}</div>
-                        <div className="description">{post.description}</div>
+                        <div className="description">{post.description.length > 10 ? post.description.substring(0,10) + ".." : post.description}</div>
                         <button className="likeUnLike" onClick={() => likeUnlike(post._id)}>Like!</button>
                     </div>
                 </div>

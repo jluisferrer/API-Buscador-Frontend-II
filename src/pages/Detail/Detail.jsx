@@ -32,7 +32,6 @@ export const Detail = () => {
             throw new Error('Cant likeUnLike Post' + error.message);
         }
     }
-
     return (
         detailRdx?.detail?._id &&
         <div className="detailDesign">
