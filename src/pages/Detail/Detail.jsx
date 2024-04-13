@@ -14,6 +14,7 @@ export const Detail = () => {
     const rdxUser = useSelector(userData)
     const token = rdxUser.credentials.token
     
+    
     useEffect(() => {
         if (!detailRdx?.detail?._id) {
             navigate("/")

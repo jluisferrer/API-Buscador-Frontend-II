@@ -17,7 +17,7 @@
     padding: 1vh;
     box-shadow: 0 0 1vh rgba(0, 0, 0, 0.15);
     align-items: center;
-    
+
 }
 
 .cardHeader {
@@ -30,11 +30,6 @@
 .title {
     font-size: 2vh;
     font-weight: bold;
-}
-
-.actions {
-    display: flex;
-    gap: 1vh;
 }
 
 .cardBody {
