@@ -17,9 +17,13 @@ Este es mi séptimo proyecto en la academia GeekHubs asi como mi segundo proyect
 
 ## Tecnologias usadas ⚙
 
-![Static Badge](https://img.shields.io/badge/React-%2361DAFB?style=for-the-badge&logo=react&logoColor=%2361DAFB&labelColor=black) ![Static Badge](https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&logo=javascript&logoColor=F0DB4F&labelColor=black)
+![Static Badge](https://img.shields.io/badge/React-%2361DAFB?style=for-the-badge&logo=react&logoColor=%2361DAFB&labelColor=black) 
+![Static Badge](https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&logo=javascript&logoColor=F0DB4F&labelColor=black)
 
-![Static Badge](https://img.shields.io/badge/HTML5-%23E34F26?style=for-the-badge&logo=html5&logoColor=%23E34F26&labelColor=black) ![Static Badge](https://img.shields.io/badge/CSS3-%231572B6?style=for-the-badge&logo=css3&logoColor=%231572B6&labelColor=black)
+![Static Badge](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+
+![Static Badge](https://img.shields.io/badge/HTML5-%23E34F26?style=for-the-badge&logo=html5&logoColor=%23E34F26&labelColor=black) 
+![Static Badge](https://img.shields.io/badge/CSS3-%231572B6?style=for-the-badge&logo=css3&logoColor=%231572B6&labelColor=black)
 
 ## Conexión con el proyecto backend 🧩
 
@@ -27,7 +31,7 @@ https://github.com/jluisferrer/Proyecto-5-Red-social
 
 ## Esquema backend 🗺️
 
-![SchemeStudioTatoo](https://github.com/jluisferrer/Proyecto-4/assets/157707370/e2c1e793-a0b1-4ec8-bc78-fe80c9badaad)
+![esquema](https://github.com/jluisferrer/API-Buscador-Frontend-II/assets/157707370/5306828b-17a9-49ac-b2ce-170df5b1bedf)
 
 
 ## Instalación 🏗️
