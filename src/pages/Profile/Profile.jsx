@@ -7,6 +7,8 @@ import { CInput } from "../../common/CInput/CInput"
 import { CButton } from "../../common/CButton/CButton"
 import { GetProfile, UpdateProfile, GetUserPosts, DeletePost, UpdatePost } from "../../services/apiCalls"
 import { profile } from "../../app/slices/userSlice"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -36,6 +38,19 @@ export const Profile = () => {
             [e.target.name]: e.target.value,
         }));
     };
+
+    const checkError = (e) => {
+        const error = validame(e.target.name, e.target.value)
+
+        setUserError((prevState) => ({
+            ...prevState,
+            [e.target.name + "Error"]: error,
+        }))
+        if (error) {
+            toast.error(error);
+        }
+    }
+
 
     //instaciamos redux para escritura y lectura de perfil
     const dispatch = useDispatch();
@@ -98,7 +113,8 @@ export const Profile = () => {
             // Actualiza la lista de publicaciones después de borrar una
             setMyPosts(myPosts.filter(post => post.id !== postId));
         } catch (error) {
-            console.error(`Deleting post failed: ` + error.message);
+            throw new Error('Cant delete Post' + error.message);
+
         }
     }
 
@@ -135,6 +151,7 @@ export const Profile = () => {
     return (
         <>
             <div className="profileDesign">
+            <ToastContainer />
                 {<><div>Name:
                     <CInput className={`inputDesign ${userError.usernameError !== "" ? "inputDesignError" : ""}${write === ""}`}
                         type="text"
@@ -143,7 +160,9 @@ export const Profile = () => {
                         disabled={write}
                         value={user.username || ""}
                         changeEmit={(e) => inputHandler(e)}
+                        onBlurFunction={(e) => checkError(e)}
                     />
+                    <div className="inputDesignError">{userError.usernameError}</div>
                 </div>
                     <div>Email:
                         <CInput className={`inputDesign ${userError.emailError !== "" ? "inputDesignError" : ""}${write === ""}`}
@@ -153,7 +172,9 @@ export const Profile = () => {
                             disabled="disabled"
                             value={user.email || ""}
                             changeEmit={(e) => inputHandler(e)}
+                            onBlurFunction={(e) => checkError(e)}
                         />
+                        <div className="inputDesignError">{userError.emailError}</div>
                     </div>
                     <div>Role
                         <CInput className={`inputDesign ${userError.roleError !== "" ? "inputDesignError" : ""}${write === ""}`}
@@ -163,7 +184,9 @@ export const Profile = () => {
                             disabled="disabled"
                             value={user.role || ""}
                             changeEmit={(e) => inputHandler(e)}
+                            onBlurFunction={(e) => checkError(e)}
                         />
+                        <div className="inputDesignError">{userError.roleError}</div>
                     </div>
                     <CButton
                         className={(write === "") ? "btn cButtonDesignProfile" : "btn cButtonDesignProfile"}
@@ -177,7 +200,7 @@ export const Profile = () => {
                             <div className="title">{post.title}</div>
                             <div className="actions">
                             <button className="edit" onClick={() => updatePost(post.id)}>Edit</button>
-                                <button className="del" onClick={() => deletePost(post.id)}>Delete</button>
+                            <button className="del" onClick={() => deletePost(post.id)}>Delete</button>
                             </div>
                         </div>
                         <div className="cardBody">

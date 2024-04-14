@@ -1,4 +1,4 @@
-.profileDesign {
+.detailDesign {
     height: 80vh;
     width: 100vw;
     overflow: auto;
@@ -16,6 +16,8 @@
     margin: 1vh;
     padding: 1vh;
     box-shadow: 0 0 1vh rgba(0, 0, 0, 0.15);
+    align-items: center;
+
 }
 
 .cardHeader {
@@ -30,15 +32,11 @@
     font-weight: bold;
 }
 
-.actions {
-    display: flex;
-    gap: 1vh;
-}
-
 .cardBody {
     display: flex;
     flex-direction: column;
     gap: 1vh;
+    align-items: center;
 }
 
 .description {
@@ -62,4 +60,9 @@
 .del:hover,
 .edit:hover {
     background-color: rgb(42, 157, 143);
+}
+
+.likeUnLike{
+background-color: rgb(221, 19, 19);
+width: 5em;
 }

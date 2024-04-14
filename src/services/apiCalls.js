@@ -267,3 +267,26 @@ export const LikePost = async (token, id) => {
         throw new Error('Cant likeunlike post ' + error.message);
     }
   }
+
+  export const GetPostsById = async (id, token) => {
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    }
+    try {
+        const response = await fetch(`${root}posts/${id}`, options)
+        const data = await response.json();
+        if (!data.success) {
+            throw new Error(data.message)
+        }
+
+        return data
+
+    } catch (error) {
+        throw new Error('Cant get posts ' + error.message);
+    }
+}
+  

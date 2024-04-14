@@ -3,11 +3,9 @@ import { searchData } from "../../app/slices/searchSlice";
 import { userData } from "../../app/slices/userSlice";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { GetUsers, DeleteUser, UpdateProfile } from "../../services/apiCalls";
+import { GetUsers, DeleteUser, UpdateProfile, GetPosts } from "../../services/apiCalls";
 import dayjs from "dayjs";
-import { useDispatch, useSelector } from "react-redux";
-
-const numUserDisplay = 100;
+import { useSelector } from "react-redux";
 
 export const Admin = () => {
     //Instancia de Redux en modo lectura para home
@@ -27,10 +25,7 @@ export const Admin = () => {
     const navigate = useNavigate();
     const [loadedData, setLoadedData] = useState(false);
     const [users, setUsers] = useState([]);
-    const [rowNumbers1, setRowNumbers1] = useState([]);
-    const [roleStorage, setRoleStorage] = useState();
-    const [currentPageU, setCurrentPageU] = useState(1);
-    const [usersPerPage] = useState(numUserDisplay); // Number of users per page
+    const roleStorage = useState();
 
     // solo entra superuser
     useEffect(() => {
@@ -56,6 +51,23 @@ export const Admin = () => {
             throw new Error('Get users failed: ' + error.message);
         }
     };
+
+    const [posts, setPosts] = useState([])
+    useEffect(() => {
+        const getDataPosts = async () => {
+
+            try {
+                const fetched = await GetPosts(tokenStorage)
+                setPosts(fetched.data)
+            } catch (error) {
+                throw new Error('Cant get data  Posts' + error.message);
+
+            }
+        }
+        if (posts.length === 0) {
+            getDataPosts()
+        }
+    }, [posts, tokenStorage])
     const deleteUser = async (_id) => {
         try {
             await DeleteUser(tokenStorage, _id);
@@ -64,16 +76,12 @@ export const Admin = () => {
             throw new Error('Failed to delete user: ', error.message);
         }
     };
-    // const pageCountUsers = Math.ceil(users.length / numUserDisplay);
-    const indexOfLastUser = currentPageU * usersPerPage;
-    const indexOfFirstUser = indexOfLastUser - usersPerPage;
-    const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
     return (
         <>
             <div className="adminDesign">
                 <div className="totalUsers">Total Users: {users.length}</div>
-                {currentUsers.map((user, index) => (
-                    <div className={`userCard ${rowNumbers1[index] % 2 == 0 ? "grayBg" : ""}`} key={user._id}>
+                {users.map((user) => (
+                    <div className="userCard" key={user._id}>
                         <div className="cardHeader">
                             <div className="username">Username: {user.username}</div>
                             <div className="actions">
@@ -89,6 +97,20 @@ export const Admin = () => {
                         </div>
                     </div>
                 ))}
+                <div className="totalPosts">Total Posts: {posts.length}</div>
+                {posts.map((post) => (
+                    <div className="postCard" key={post._id}>
+                        <div className="postDetail" onClick={() => manageDetail(post)} >soy el detalle<div className="cardHeader" >
+                            <div className="username">{post.userId ? post.userId.username : 'Usuario desconocido'}</div>
+                            <div className="title">{post.title}</div>
+                        </div></div>
+                        <div className="cardBody">
+                            <div className="likes">Likes: {post.likes.length}</div>
+                            <div className="description">{post.description}</div>
+                            {/* <button className="likeUnLike" onClick={() => likeUnlike(post._id)}>Like!</button> */}
+                        </div>
+                    </div>
+                )).reverse()}
             </div>
         </>
     )

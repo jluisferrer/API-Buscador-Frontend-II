@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { decodeToken } from "react-jwt";
 import { validame } from "../../utils/functions";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { login } from "../../app/slices/userSlice";
 import { useDispatch } from "react-redux";
@@ -28,6 +30,8 @@ export const Login = () => {
         }))
     }
 
+    
+
     const [userError, setUserError] = useState({
         emailError: "",
         passwordError: ""
@@ -43,6 +47,9 @@ export const Login = () => {
             ...prevState,
             [e.target.name + "Error"]: error,
         }))
+        if (error) {
+            toast.error(error);
+        }
     }
 
     const loginMe = async () => {
@@ -68,6 +75,7 @@ export const Login = () => {
     }
     return (
         <div className="loginDesign">
+            <ToastContainer />
             <CInput
              className={`inputDesign ${userError.emailError !== "" ? "inputDesignError" : ""
             }`}

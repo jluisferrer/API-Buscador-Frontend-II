@@ -7,9 +7,13 @@ import storage from "redux-persist/lib/storage";
 
 import userSlice from "./slices/userSlice";
 
+import  detailSlice  from "./slices/postSlice";
+
+
 
 const reducers = combineReducers({  //combina los slices
   user: userSlice,
+  detail: detailSlice,
 });
 
 const persistConfig = {  //encripta el estado de la aplicacion en el storage
