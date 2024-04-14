@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { LikePost } from "../../services/apiCalls"
 import { userData } from "../../app/slices/userSlice"
+import dayjs from "dayjs"
 
 
 export const Detail = () => {
@@ -14,7 +15,10 @@ export const Detail = () => {
     const rdxUser = useSelector(userData)
     const token = rdxUser.credentials.token
     
-    
+    useEffect(() => {
+        if (!token)
+            navigate('/login')
+    }, [rdxUser]);
     useEffect(() => {
         if (!detailRdx?.detail?._id) {
             navigate("/")
@@ -35,16 +39,16 @@ export const Detail = () => {
     return (
         detailRdx?.detail?._id &&
         <div className="detailDesign">
-            <div className="postCard">
-                <div className="cardHeader">
-                    <div className="title">Title:{detailRdx?.detail?.title}</div>
-                    <div className="username">User:{detailRdx?.detail?.userId?.username}</div>
+            <div className="postCardDetail">
+                <div className="cardHeaderDetail">
+                    <div className="titleDetail">Title:{detailRdx?.detail?.title}</div>
+                    <div className="titleDetail">User:{detailRdx?.detail?.userId?.username}</div>
                 </div>
                 <div className="cardBody">
-                    <div className="description">{detailRdx?.detail?.description}</div>
-                    <div className="likes">Likes: {detailRdx?.detail?.likes.length}</div>
-                    <div className="likes">Created at: {detailRdx?.detail?.createdAt}</div>
-                    <button className="likeUnLike" onClick={() => likeUnlike(detailRdx?.detail?._id)}>Like!</button>
+                    <div className="descriptionDetail"><strong>Desription:</strong>{detailRdx?.detail?.description}</div>
+                    {/* <div className="likes">Likes: {detailRdx?.detail?.likes.length}</div> */}
+                    <div className="likesDetail">Created at: {dayjs(detailRdx?.detail?.createdAt).locale('es').format('D MMMM YYYY, h:mm a')}</div>
+                    <button className="likeUnLikeDetail" onClick={() => likeUnlike(detailRdx?.detail?._id)}>Like!</button>
                 </div>
             </div>
         </div>

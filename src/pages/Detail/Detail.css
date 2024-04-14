@@ -2,6 +2,7 @@
     height: 80vh;
     width: 100vw;
     overflow: auto;
+    overflow-x: hidden;
     background-color: rgb(244, 241, 222);
     display: flex;
     flex-wrap: wrap;
@@ -9,8 +10,9 @@
     align-items: center;
 }
 
-.postCard {
+.postCardDetail {
     width: 28vw;
+    height: 40vh;
     border: 0.1vh solid #ccc;
     border-radius: 0.5vh;
     margin: 1vh;
@@ -20,49 +22,38 @@
 
 }
 
-.cardHeader {
+.cardHeaderDetail {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5vh;
+    color: black;
 }
 
-.title {
+.titleDetail {
     font-size: 2vh;
     font-weight: bold;
+    color: black;
 }
 
-.cardBody {
+.cardBodyDetail {
     display: flex;
     flex-direction: column;
     gap: 1vh;
     align-items: center;
+    font-weight: bold;
 }
 
-.description {
+.descriptionDetail {
     color: #333;
+    /* font-weight: bold; */
 }
 
-.likes {
+.likesDetail {
     color: #999;
 }
 
-.del,
-.edit {
-    padding: 0.5vh 1vh;
-    border: none;
-    border-radius: 0.5vh;
-    color: #fff;
-    background-color: rgb(38, 70, 83);
-    cursor: pointer;
-}
-
-.del:hover,
-.edit:hover {
-    background-color: rgb(42, 157, 143);
-}
-
-.likeUnLike{
+.likeUnLikeDetail{
 background-color: rgb(221, 19, 19);
 width: 5em;
 }

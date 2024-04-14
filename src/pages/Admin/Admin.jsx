@@ -18,7 +18,7 @@ export const Admin = () => {
     const [tokenStorage, setTokenStorage] = useState(rdxUser.credentials.token);
     useEffect(() => {
         if (!tokenStorage) {
-            navigate("/")
+            navigate("/login")
         }
     }, [tokenStorage])
     console.log(rdxUser, "rdxUser");
@@ -79,34 +79,34 @@ export const Admin = () => {
     return (
         <>
             <div className="adminDesign">
-                <div className="totalUsers">Total Users: {users.length}</div>
+                <div className="totalUsersAdmin">Total Users: {users.length}</div>
                 {users.map((user) => (
-                    <div className="userCard" key={user._id}>
-                        <div className="cardHeader">
-                            <div className="username">Username: {user.username}</div>
-                            <div className="actions">
+                    <div className="userCardAdmin" key={user._id}>
+                        <div className="cardHeaderAdmin">
+                            <div className="usernameAdmin">Username: {user.username}</div>
+                            <div className="actionsAdmin">
                                 <button className="del" onClick={() => deleteUser(user._id)}>delete</button>
                                 <button className="edit" onClick={() => UpdateProfile(user._id)}>edit</button>
                             </div>
                         </div>
-                        <div className="cardBody">
-                            <div className="following"><strong>Following:</strong> {user.following != "" ? user.following : "none"}</div>
-                            <div className="followers"><strong>Followers:</strong> {user.followers != "" ? user.followers : "none"}</div>
-                            <div className="email"><strong>Email:</strong> {user.email}</div>
-                            <div className="createdAt"><strong>Register since:</strong>{dayjs(user.createdAt).format("DD-MM-YYYY")}</div>
+                        <div className="cardBodyAdmin">
+                            <div className="followingAdmin"><strong>Following:</strong> {user.following != "" ? user.following : "none"}</div>
+                            <div className="followersAdmin"><strong>Followers:</strong> {user.followers != "" ? user.followers : "none"}</div>
+                            <div className="emailAdmin"><strong>Email:</strong> {user.email}</div>
+                            <div className="createdAtAdmin"><strong>Register since:</strong>{dayjs(user.createdAt).locale('es').format("DD-MM-YYYY")}</div>
                         </div>
                     </div>
                 ))}
-                <div className="totalPosts">Total Posts: {posts.length}</div>
+                <div className="totalPostsAdmin">Total Posts: {posts.length}</div>
                 {posts.map((post) => (
-                    <div className="postCard" key={post._id}>
-                        <div className="postDetail" onClick={() => manageDetail(post)} >soy el detalle<div className="cardHeader" >
-                            <div className="username">{post.userId ? post.userId.username : 'Usuario desconocido'}</div>
-                            <div className="title">{post.title}</div>
+                    <div className="postCardAdmin" key={post._id}>
+                        <div className="postDetailAdmin" onClick={() => manageDetail(post)}><div className="cardHeader" >
+                            <div className="usernameAdmin">{post.userId ? post.userId.username : 'Usuario desconocido'}</div>
+                            <div className="titleAdmin">{post.title}</div>
                         </div></div>
                         <div className="cardBody">
-                            <div className="likes">Likes: {post.likes.length}</div>
-                            <div className="description">{post.description}</div>
+                            <div className="likesAdmin">Likes: {post.likes.length}</div>
+                            <div className="descriptionAdmin">{post.description}</div>
                             {/* <button className="likeUnLike" onClick={() => likeUnlike(post._id)}>Like!</button> */}
                         </div>
                     </div>

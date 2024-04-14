@@ -5,8 +5,8 @@ import { userData, logout } from "../../app/slices/userSlice"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { CInput } from "../CInput/CInput"
-
 import { updateCriteria } from "../../app/slices/searchSlice";
+import logo from '../../img/logo.png'
 
 
 
@@ -34,6 +34,7 @@ export const Header = () => {
     }, [criteria])
     return (
         <div className="headerDesign">
+             <img src={logo} alt="Logo" className="logo" />
             {/* BARRA DE BÚSQUEDA */}
             {/* <CInput
                 type="text"

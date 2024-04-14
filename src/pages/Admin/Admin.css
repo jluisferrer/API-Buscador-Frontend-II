@@ -9,41 +9,42 @@
     align-items: center;
 }
 
-.userCard {
+.userCardAdmin {
     width: 28vw;
     border: 0.1vh solid #ccc;
     border-radius: 0.5vh;
     margin: 1vh;
     padding: 1vh;
     box-shadow: 0 0 1vh rgba(0, 0, 0, 0.15);
+    align-items: center;
 }
 
-.cardHeader {
+.cardHeaderAdmin {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5vh;
+    color: black;
 }
 
-.username {
+.usernameAdmin {
     font-size: 2vh;
     font-weight: bold;
 }
 
-.actions {
+.actionsAdmin {
     display: flex;
     gap: 1vh;
 }
 
-.cardBody {
+.cardBodyAdmin {
     display: flex;
     flex-direction: column;
     gap: 1vh;
+    align-items: center;
+    font-weight: bold;
 }
 
-.grayBg {
-    background-color: rgb(42, 157, 143);
-}
 
 .del,
 .edit {
@@ -60,13 +61,14 @@
     background-color: rgb(42, 157, 143);
 }
 
-.totalUsers {
+.totalUsersAdmin, .totalPostsAdmin {
     margin-top: 2vh;
     font-size: 2vh;
     font-weight: bold;
+    color: black;
 }
 
-.postCard {
+.postCardAdmin {
     width: 28vw;
     border: 0.1vh solid #ccc;
     border-radius: 0.5vh;
@@ -75,55 +77,52 @@
     box-shadow: 0 0 1vh rgba(0, 0, 0, 0.15);
     align-items: center;
 }
+.postDetailAdmin {
+    width: 28vw;
+    border: 0.1vh solid #ccc;
+    border-radius: 0.5vh;
+    background-color: #9a8f8f;
+    box-shadow: 0 0 1vh rgba(0, 0, 0, 0.15);
+    align-items: center;
+    color:black
 
-.cardHeader {
+}
+
+.cardHeaderAdmin {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5vh;
 }
 
-.title {
+.titleAdmin {
     font-size: 2vh;
     font-weight: bold;
+    color: black;
 }
 
-.actions {
+.actionsAdmin {
     display: flex;
     gap: 1vh;
 }
 
-.cardBody {
+.cardBodyAdmin {
     display: flex;
     flex-direction: column;
     gap: 1vh;
     align-items: center;
+    color: black
 }
 
-.description {
+.descriptionAdmin {
     color: #333;
 }
 
-.likes {
+.likesAdmin {
     color: #999;
 }
 
-.del,
-.edit {
-    padding: 0.5vh 1vh;
-    border: none;
-    border-radius: 0.5vh;
-    color: #fff;
-    background-color: rgb(38, 70, 83);
-    cursor: pointer;
-}
-
-.del:hover,
-.edit:hover {
-    background-color: rgb(42, 157, 143);
-}
-
-.likeUnLike{
+.likeUnLikeAdmin{
 background-color: rgb(221, 19, 19);
 width: 5em;
 }

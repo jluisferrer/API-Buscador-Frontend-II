@@ -4,8 +4,11 @@
     color: rgb(233, 196, 106);
     background-color: rgb(38, 70, 83);
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: flex-end;
+}
+.logo{
+ height: 100px;
 }
 
 .navigatorDesign {

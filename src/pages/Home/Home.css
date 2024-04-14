@@ -2,6 +2,7 @@
     height: 80vh;
     width: 100vw;
     overflow: auto;
+    overflow-x: hidden;
     background-color: rgb(244, 241, 222);
     display: flex;
     flex-wrap: wrap;
@@ -9,7 +10,23 @@
     align-items: center;
 }
 
-.postCard {
+.postDetailHome {
+    color: black;
+    background-color: #ededed;
+    height: 1.4;
+    width: 2.6em;
+    background-color: rgb(238, 27, 27);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.postDetailHome:hover {
+    background-color: rgba(238, 27, 27, 0.687);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.postCardHome {
     width: 28vw;
     border: 0.1vh solid #ccc;
     border-radius: 0.5vh;
@@ -19,54 +36,68 @@
     align-items: center;
 }
 
-.cardHeader {
+.cardHeaderHome {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5vh;
-}
-
-.title {
-    font-size: 2vh;
     font-weight: bold;
 }
 
-.actions {
+
+.titleHome {
     display: flex;
-    gap: 1vh;
+    justify-content: flex-start;
+    font-size: 2vh;
+    font-weight: bold;
+    width: auto;
 }
 
-.cardBody {
+
+.cardBodyHome {
     display: flex;
     flex-direction: column;
     gap: 1vh;
     align-items: center;
+    font-weight: bold;
 }
 
-.description {
+.descriptionHome {
     color: #333;
+    font-weight: bold;
 }
 
-.likes {
-    color: #999;
+.likesHome {
+    color: red;
 }
 
-.del,
-.edit {
-    padding: 0.5vh 1vh;
-    border: none;
-    border-radius: 0.5vh;
-    color: #fff;
-    background-color: rgb(38, 70, 83);
+
+.likeUnLikeHome {
+    border-radius: 8px;
+    background-color: red;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
     cursor: pointer;
+    transition: border-color 0.25s;
 }
 
-.del:hover,
-.edit:hover {
-    background-color: rgb(42, 157, 143);
+.likeUnLikeHome:hover {
+    background-color: rgb(161, 2, 2);
+    cursor: pointer;
+    transition: 0.2s;
+
+}
+.createPost{
+background-color: rgb(180, 180, 208);
+cursor: pointer;
+transition: 0.2;
 }
 
-.likeUnLike{
-background-color: rgb(221, 19, 19);
-width: 5em;
+.createPost:hover{
+    background-color: rgba(180, 180, 208, 0.62);
+    cursor: pointer;
+    transition: 0.2s;
 }
