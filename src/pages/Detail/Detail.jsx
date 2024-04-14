@@ -37,12 +37,13 @@ export const Detail = () => {
         <div className="detailDesign">
             <div className="postCard">
                 <div className="cardHeader">
-                    <div className="title">{detailRdx?.detail?.title}</div>
-                    <div className="username">{detailRdx?.detail?.userId?.username}</div>
+                    <div className="title">Title:{detailRdx?.detail?.title}</div>
+                    <div className="username">User:{detailRdx?.detail?.userId?.username}</div>
                 </div>
                 <div className="cardBody">
                     <div className="description">{detailRdx?.detail?.description}</div>
                     <div className="likes">Likes: {detailRdx?.detail?.likes.length}</div>
+                    <div className="likes">Created at: {detailRdx?.detail?.createdAt}</div>
                     <button className="likeUnLike" onClick={() => likeUnlike(detailRdx?.detail?._id)}>Like!</button>
                 </div>
             </div>

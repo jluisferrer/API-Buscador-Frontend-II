@@ -20,8 +20,7 @@ export const Home = () => {
     const token = rdxUser.credentials.token
     
     const manageDetail = (post) => {
-        dispatch(updateDetail({detail:post}));
-        
+        dispatch(updateDetail({detail:post}));       
         navigate("/detail");
     };
 
@@ -83,7 +82,6 @@ export const Home = () => {
             throw new Error('Cant create new Post ' + error.message);
         }
     };
-    
     return (
         <div className="homeDesign">
              <div>
