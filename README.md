@@ -1,8 +1,79 @@
-# React + Vite
+# Red Social Frontend ✒️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es mi séptimo proyecto en la academia GeekHubs asi como mi segundo proyecto usando React este consiste en la parte frontend de la Red Social descrita en el proyecto 5 que fue la parte backend de la RS, en esta app los usuarios necesitan registrarse para poder crear nuevos posts así como visualizar posts de otros usuarios, ver el detalle de cada uno de estos y dar o quitar likes, en su perfil de usuario podrán visualizar sus propios posts asi como eliminarlos y modificar ciertos campos de su perfil asi como visualizar su rol, ademas se incluye un apartado de gestión de usuarios y posts reservado para usuarios con roles mas altos como Super Admin.
 
-Currently, two official plugins are available:
+<summary> Indice 🧾</summary>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Tecnologias usadas ⚙](#tecnologias-usadas-)
+- [Conexión con el proyecto backend 🧩](#conexión-con-el-proyecto-backend-)
+- [Esquema backend 🗺️](#esquema-backend-)
+- [Instalación 🏗️](#instalacion-)
+- [Tiempo de realización ⏳](#tiempo-de-realizacion-)
+- [Fallos 🕷️](#fallos-)
+- [Futuras Implementaciones 📈](#futuras-implementaciones-)
+- [Autor 🎨](#autor-)
+
+
+
+## Tecnologias usadas ⚙
+
+![Static Badge](https://img.shields.io/badge/React-%2361DAFB?style=for-the-badge&logo=react&logoColor=%2361DAFB&labelColor=black) ![Static Badge](https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&logo=javascript&logoColor=F0DB4F&labelColor=black)
+
+![Static Badge](https://img.shields.io/badge/HTML5-%23E34F26?style=for-the-badge&logo=html5&logoColor=%23E34F26&labelColor=black) ![Static Badge](https://img.shields.io/badge/CSS3-%231572B6?style=for-the-badge&logo=css3&logoColor=%231572B6&labelColor=black)
+
+## Conexión con el proyecto backend 🧩
+
+https://github.com/jluisferrer/Proyecto-5-Red-social
+
+## Esquema backend 🗺️
+
+![SchemeStudioTatoo](https://github.com/jluisferrer/Proyecto-4/assets/157707370/e2c1e793-a0b1-4ec8-bc78-fe80c9badaad)
+
+
+## Instalación 🏗️
+
+
+**1**
+
+***Clonar el repositorio***
+```sh
+git clone https://github.com/jluisferrer/Proyecto-6-API-Buscador-Frontend-I.git
+```
+
+**2**
+
+***Instalar dependencias***
+```sh
+npm install
+```
+
+**3**
+
+***Ejecutar proyecto***
+```sh
+npm run dev
+```
+
+## Tiempo de realización ⏳
+
+- Diez dias
+
+
+## Fallos 🕷️
+
+-Los servicios deben escogerse por ID y no por nombre.
+
+-En los appointments se debería poder escoger la hora además de la fecha.
+
+
+## Futuras Implementaciones 📈
+- Mejorar diseño
+- Modificar posts de cada usuario
+- Modificar posts desde vista de superadmin
+- Modificar mas campos del perfil
+- Otras actualizaciones...
+
+## AUTOR 🎨
+
+- **JOSE LUIS FERRER**
+
