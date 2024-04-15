@@ -105,11 +105,11 @@ export const Home = () => {
                 <div className="postCardHome" >
                     <div className="postDetailHome" onClick={() => manageDetail(post)} key={post._id}>Detail</div><div className="cardHeaderDetail" >
                     <div className="cardHeaderHome">{post.userId ?( post.userId.username.length > 10 ? post.userId.username.substring(0,10) + ".." : post.userId.username ) : 'Usuario desconocido'}</div>
-                        <div className="titleHome">{post.title.length > 10 ? post.title.substring(0,10) + ".." : post.title }</div>
+                        <div className="titleHome">{post.title.length > 20 ? post.title.substring(0,20) + ".." : post.title }</div>
                     </div>
                     <div className="cardBodyHome">
                         <div className="likesHome">Likes: {post.likes.length}</div>
-                        <div className="descriptionHome">{post.description.length > 10 ? post.description.substring(0,10) + ".." : post.description}</div>
+                        <div className="descriptionHome">{post.description.length > 60 ? post.description.substring(0,60) + ".." : post.description}</div>
                         <button className="likeUnLikeHome" onClick={() => likeUnlike(post._id)}>Like!</button>
                     </div>
                 </div>

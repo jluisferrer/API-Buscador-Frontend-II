@@ -7,8 +7,10 @@ import { CInput } from "../../common/CInput/CInput"
 import { CButton } from "../../common/CButton/CButton"
 import { GetProfile, UpdateProfile, GetUserPosts, DeletePost, UpdatePost } from "../../services/apiCalls"
 import { profile } from "../../app/slices/userSlice"
+import { validame } from "../../utils/functions"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import dayjs from "dayjs"
 
 
 
@@ -152,7 +154,7 @@ export const Profile = () => {
         <>
             <div className="profileDesign">
             <ToastContainer />
-                {<><div>Name:
+                {<><div className="userProfile">Name:
                     <CInput className={`inputDesign ${userError.usernameError !== "" ? "inputDesignError" : ""}${write === ""}`}
                         type="text"
                         placeholder=""
@@ -164,7 +166,7 @@ export const Profile = () => {
                     />
                     <div className="inputDesignError">{userError.usernameError}</div>
                 </div>
-                    <div>Email:
+                    <div className="userProfile">Email:
                         <CInput className={`inputDesign ${userError.emailError !== "" ? "inputDesignError" : ""}${write === ""}`}
                             type="email"
                             placeholder=""
@@ -176,7 +178,7 @@ export const Profile = () => {
                         />
                         <div className="inputDesignError">{userError.emailError}</div>
                     </div>
-                    <div>Role
+                    <div className="userProfile">Role
                         <CInput className={`inputDesign ${userError.roleError !== "" ? "inputDesignError" : ""}${write === ""}`}
                             type="text"
                             placeholder=""
@@ -206,6 +208,7 @@ export const Profile = () => {
                         <div className="cardBody">
                             <div className="description">{post.description}</div>
                             <div className="likes">Likes: {post.likes.length}</div>
+                            <div className="description">{dayjs(post.createdAt).locale('es').format("DD-MM-YYYY, h:mm a")}</div>
                         </div>
                     </div>
                 ))}

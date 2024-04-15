@@ -24,7 +24,9 @@
     align-items: center;
     margin-bottom: 1.5vh;
 }
-
+.userProfile{
+color: black
+}
 .title {
     font-size: 2vh;
     font-weight: bold;

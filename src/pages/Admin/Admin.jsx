@@ -9,9 +9,9 @@ import { useSelector } from "react-redux";
 
 export const Admin = () => {
     //Instancia de Redux en modo lectura para home
-    // const searchRdx = useSelector(searchData);
-    useEffect(() => {
-    }, []);
+  
+    // useEffect(() => {
+    // }, []);
     //Instancia de Redux para escritura y lectura (ver y editar )
     // const dispatch = useDispatch();
     const rdxUser = useSelector(userData);
@@ -79,7 +79,7 @@ export const Admin = () => {
     return (
         <>
             <div className="adminDesign">
-                <div className="totalUsersAdmin">Total Users: {users.length}</div>
+                <div className="totalUsersAdmin">Total Users {users.length} :</div>
                 {users.map((user) => (
                     <div className="userCardAdmin" key={user._id}>
                         <div className="cardHeaderAdmin">
@@ -97,12 +97,13 @@ export const Admin = () => {
                         </div>
                     </div>
                 ))}
-                <div className="totalPostsAdmin">Total Posts: {posts.length}</div>
+                <div className="totalPostsAdmin">Total Posts {posts.length} :</div>
                 {posts.map((post) => (
                     <div className="postCardAdmin" key={post._id}>
                         <div className="postDetailAdmin" onClick={() => manageDetail(post)}><div className="cardHeader" >
                             <div className="usernameAdmin">{post.userId ? post.userId.username : 'Usuario desconocido'}</div>
                             <div className="titleAdmin">{post.title}</div>
+                            <div className="postDetailAdmin">{dayjs(post.createdAt).locale('es').format("DD-MM-YYYY, h:mm a")}</div>
                         </div></div>
                         <div className="cardBody">
                             <div className="likesAdmin">Likes: {post.likes.length}</div>
