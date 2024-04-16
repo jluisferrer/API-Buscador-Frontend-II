@@ -41,7 +41,7 @@ https://github.com/jluisferrer/Proyecto-5-Red-social
 
 ***Clonar el repositorio***
 ```sh
-git clone https://github.com/jluisferrer/Proyecto-6-API-Buscador-Frontend-I.git
+git clone https://github.com/jluisferrer/API-Buscador-Frontend-II.git
 ```
 
 **2**
