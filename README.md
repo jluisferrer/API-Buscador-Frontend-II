@@ -1,3 +1,7 @@
+
+![rrss2](https://github.com/jluisferrer/API-Buscador-Frontend-II/assets/157707370/1cea83be-349d-4584-bf38-52c746d9608e)
+
+
 # Red Social Frontend ✒️
 
 Este es mi séptimo proyecto en la academia GeekHubs asi como mi segundo proyecto usando React este consiste en la parte frontend de la Red Social descrita en el proyecto 5 que fue la parte backend de la RS, en esta app los usuarios necesitan registrarse para poder crear nuevos posts así como visualizar posts de otros usuarios, ver el detalle de cada uno de estos y dar o quitar likes, en su perfil de usuario podrán visualizar sus propios posts asi como eliminarlos y modificar ciertos campos de su perfil asi como visualizar su rol, ademas se incluye un apartado de gestión de usuarios y posts reservado para usuarios con roles mas altos como Super Admin.
