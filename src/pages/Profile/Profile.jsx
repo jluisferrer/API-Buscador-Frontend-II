@@ -54,7 +54,6 @@ export const Profile = () => {
     }
 
 
-    //instaciamos redux para escritura y lectura de perfil
     const dispatch = useDispatch();
     const rdxUser = useSelector(userData)
 
@@ -120,24 +119,6 @@ export const Profile = () => {
         }
     }
 
-    // const updatePost = async (postId) => {
-    //     // Define los datos que deseas actualizar
-    //     const updatedData = {
-    //         title: 'Nuevo título',
-    //         description: 'Nueva descripción',
-    //         // ... otros campos que desees actualizar
-    //     };
-
-    //     try {
-    //         const updatedPost = await UpdatePost(postId, tokenStorage, updatedData);
-    //         console.log(updatedPost); // O maneja la respuesta como prefieras
-    //         // Actualiza la lista de publicaciones después de actualizar una
-    //         setMyPosts(myPosts.map(post => post.id === postId ? updatedPost : post));
-    //     } catch (error) {
-    //         console.error(`Updating post failed: ` + error.message);
-    //     }
-    // }
-
     const [myPosts, setMyPosts] = useState([]);
     useEffect(() => {
         const getMyPostsData = async () => {
@@ -201,7 +182,7 @@ export const Profile = () => {
                         <div className="cardHeader">
                             <div className="title">{post.title}</div>
                             <div className="actions">
-                            <button className="edit" onClick={() => updatePost(post.id)}>Edit</button>
+                            <button className="edit" onClick={() => updatePost(post.id)}>Edit</button> {/*futura implementacion... */}
                             <button className="del" onClick={() => deletePost(post.id)}>Delete</button>
                             </div>
                         </div>

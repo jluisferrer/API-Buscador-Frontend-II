@@ -18,6 +18,7 @@
     background-color: rgb(238, 27, 27);
     cursor: pointer;
     transition: 0.2s;
+    border-radius: 0.6em;
 }
 
 .postDetailHome:hover {

@@ -1,5 +1,4 @@
 import "./Admin.css";
-import { searchData } from "../../app/slices/searchSlice";
 import { userData } from "../../app/slices/userSlice";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,12 +7,6 @@ import dayjs from "dayjs";
 import { useSelector } from "react-redux";
 
 export const Admin = () => {
-    //Instancia de Redux en modo lectura para home
-  
-    // useEffect(() => {
-    // }, []);
-    //Instancia de Redux para escritura y lectura (ver y editar )
-    // const dispatch = useDispatch();
     const rdxUser = useSelector(userData);
     const [tokenStorage, setTokenStorage] = useState(rdxUser.credentials.token);
     useEffect(() => {
@@ -27,18 +20,16 @@ export const Admin = () => {
     const [users, setUsers] = useState([]);
     const roleStorage = useState();
 
-    // solo entra superuser
     useEffect(() => {
         if (roleStorage !== 'superadmin') {
             navigate("/admin")
         }
     }, [])
-    // fetching info
+
     useEffect(() => {
         fetchUsers();
     }, []);
 
-    // traemos usuarios
     const fetchUsers = async () => {
         try {
             if (!tokenStorage) {
@@ -86,7 +77,7 @@ export const Admin = () => {
                             <div className="usernameAdmin">Username: {user.username}</div>
                             <div className="actionsAdmin">
                                 <button className="del" onClick={() => deleteUser(user._id)}>delete</button>
-                                <button className="edit" onClick={() => UpdateProfile(user._id)}>edit</button>
+                                <button className="edit" onClick={() => UpdateProfile(user._id)}>edit</button> {/*futura implementacion... */}
                             </div>
                         </div>
                         <div className="cardBodyAdmin">
@@ -108,7 +99,6 @@ export const Admin = () => {
                         <div className="cardBody">
                             <div className="likesAdmin">Likes: {post.likes.length}</div>
                             <div className="descriptionAdmin">{post.description}</div>
-                            {/* <button className="likeUnLike" onClick={() => likeUnlike(post._id)}>Like!</button> */}
                         </div>
                     </div>
                 )).reverse()}

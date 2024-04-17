@@ -1,7 +1,7 @@
 import "./Detail.css"
 import { useSelector } from "react-redux"
 import { detailData } from "../../app/slices/postSlice"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { LikePost } from "../../services/apiCalls"
 import { userData } from "../../app/slices/userSlice"
@@ -46,7 +46,7 @@ export const Detail = () => {
                 </div>
                 <div className="cardBody">
                     <div className="descriptionDetail"><strong>Desription:</strong>{detailRdx?.detail?.description}</div>
-                    {/* <div className="likes">Likes: {detailRdx?.detail?.likes.length}</div> */}
+                    {/* <div className="likes">Likes: {detailRdx?.detail?.likes.length}</div> ... futura implementacion */}  
                     <div className="likesDetail">Created at: {dayjs(detailRdx?.detail?.createdAt).locale('es').format('D MMMM YYYY, h:mm a')}</div>
                     <button className="likeUnLikeDetail" onClick={() => likeUnlike(detailRdx?.detail?._id)}>Like!</button>
                 </div>
